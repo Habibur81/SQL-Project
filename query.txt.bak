@@ -1,0 +1,7 @@
+SELECT location, date, total_cases, new_cases, total_deaths, population FROM CovidDeaths 
+ORDER BY 1, 2
+
+
+SELECT location, date, total_cases, new_cases, total_deaths, population FROM CovidDeaths 
+WHERE location LIKE '%Bangladesh%' and total_deaths is not null
+ORDER BY 1, 2

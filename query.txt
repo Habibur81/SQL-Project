@@ -1,0 +1,26 @@
+SELECT location, date, total_cases, new_cases, total_deaths, population FROM CovidDeaths 
+ORDER BY 1, 2
+
+
+SELECT location, date, total_cases, new_cases, total_deaths, population FROM CovidDeaths 
+WHERE location LIKE '%Bangladesh%' and total_deaths is not null
+ORDER BY 1, 2
+
+
+SELECT * FROM PortfolioProject..CovidDeaths
+
+
+--Query for Total Covid Cases VS Deaths
+
+SELECT continent, location, date, population, total_cases, total_deaths, ROUND((total_deaths/total_cases)*100, 2, 0) AS Total_Case_VS_Death 
+FROM PortfolioProject..CovidDeaths 
+WHERE total_deaths IS NOT NULL AND location = 'Bangladesh'
+ORDER BY Total_Case_VS_Death
+
+
+--Query for Total Covid Cases VS Population
+
+SELECT continent, location, date, population, total_cases, (total_cases/population)*100 AS Total_Population_VS_Case 
+FROM PortfolioProject..CovidDeaths 
+WHERE total_cases IS NOT NULL AND location = 'Bangladesh'
+ORDER BY Total_Population_VS_Case
